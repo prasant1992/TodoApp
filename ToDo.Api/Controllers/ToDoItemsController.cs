@@ -48,12 +48,12 @@ namespace ToDo.Api.Controllers
             return Ok(updatedItem);
         }
 
-        [HttpDelete("Delete")]
+        [HttpGet("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _toDoServices.DeleteToDoItem(id);
             if (!result) return NotFound();
-            return Ok();
+            return Ok(result);
         }
     }
 }
