@@ -13,11 +13,19 @@ export class TodoService {
 
   async getTodo(){
      try {
-          return lastValueFrom(this.http.get<ToDo[]>('http://localhost:5098/ToDoItems/GetAll'))
+          return lastValueFrom(this.http.get<ToDo[]>(`${this.baseUrl}/ToDoItems/GetAll`))
         } catch (error) {
           console.log(error);
           throw error;
         }
+  }
+
+  async deleteTodo(id:number){
+    try {
+      return lastValueFrom(this.http.get<boolean>(`${this.baseUrl}/ToDoItems/Delete/${id}`))
+    } catch (error) {
+      throw error;
+    }
   }
   
 }

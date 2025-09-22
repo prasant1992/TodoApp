@@ -1,7 +1,7 @@
-<div class="card bg-base-100 w-1/2 mx-auto p-10 mt-10 shadow-xl">
-    <h3 class="text-3xl text-red-500"></h3>
+
+<h3 class="text-3xl text-red-500"></h3>
     <div class="flex items-start ...">
-        <button class="py-4 btn btn-primary">Add To Do</button>
+        <button class="py-4 btn btn-primary" routerLink="create">Add To Do</button>
     </div>
      @if(isEmpty() ){
         <p>No to do items exists. Please add some...</p>
@@ -18,5 +18,3 @@
         </ul>
     }
     
-</div>
-
