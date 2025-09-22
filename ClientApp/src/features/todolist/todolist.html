@@ -1,0 +1,22 @@
+<div class="card bg-base-100 w-1/2 mx-auto p-10 mt-10 shadow-xl">
+    <h3 class="text-3xl text-red-500"></h3>
+    <div class="flex items-start ...">
+        <button class="py-4 btn btn-primary">Add To Do</button>
+    </div>
+     @if(isEmpty() ){
+        <p>No to do items exists. Please add some...</p>
+    }@else {
+        <ul class="list">
+   
+            @for (item of todos(); track item.id) {
+                <li class="list-row items-center">
+                    <div>{{item.id}} - {{item.title}}</div>
+                    <div>{{item.description}}</div>
+                    <div><button class="btn btn-error" (click)="deleteToDo(item.id)">Delete</button></div>
+                </li>
+            }
+        </ul>
+    }
+    
+</div>
+
