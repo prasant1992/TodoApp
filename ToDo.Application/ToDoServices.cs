@@ -48,7 +48,8 @@ namespace ToDo.Application
         {
             try
             {
-                return await _toDoItemRepository.Delete(id);
+                int totalRemoved = await _toDoItemRepository.Delete(id);
+                if (totalRemoved > 0) return true;
             }
             catch (Exception ex)
             {

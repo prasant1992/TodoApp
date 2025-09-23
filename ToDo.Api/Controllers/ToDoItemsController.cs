@@ -27,7 +27,7 @@ namespace ToDo.Api.Controllers
         public async Task<IActionResult> Create([FromBody] ToDoItemDto item)
         {
             var addedItem = await _toDoServices.AddToDoItem(item);
-            if (addedItem is null) return BadRequest();
+            if (addedItem is null) return BadRequest("Unable to add item");
             return Ok(addedItem);
         }
 
