@@ -1,5 +1,5 @@
 
-<h3 class="text-3xl text-red-500"></h3>
+<div class="card-title justify-center text-3xl text-primary">List of ToDos</div>
     <div class="flex items-start ...">
         <button class="py-4 btn btn-primary" routerLink="create">Add To Do</button>
     </div>
@@ -8,10 +8,16 @@
     }@else {
         <ul class="list">
    
-            @for (item of todos(); track item.id) {
-                <li class="list-row items-center">
-                    <div>{{item.id}} - {{item.title}}</div>
-                    <div>{{item.description}}</div>
+            @for (item of todos(); track item.id;let i = $index) {
+                <li class="list-row">
+                    <div class="rounded-box text-4xl font-thin opacity-30 tabular-nums bg-gray-600 size-16 text-center text-white py-2">{{i+1}}</div>
+                    <div class="text-3xl">
+                        <div> {{item.title}}</div>
+                    </div>
+                    <p class="list-col-wrap text-xs">
+                            {{item.description}}
+                    </p>
+                    
                     <div><button class="btn btn-error" (click)="deleteToDo(item.id)">Delete</button></div>
                 </li>
             }
