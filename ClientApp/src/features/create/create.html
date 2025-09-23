@@ -6,12 +6,12 @@
         <div class="validation-hint text-error">* Title is required</div>
    }
     <label for="title" >Description: </label>
-    <textarea id="description" class="input w-full" formControlName="description"></textarea>
+    <textarea id="description" class="input w-full h-24 md:h-48 lg:h-64" formControlName="description"></textarea>
     @if (todoform.controls['description'].invalid && todoform.controls['description'].touched) {
         <div class="validation-hint text-error">* Description is required</div>
     }
     <div class="flex items-center justify-end gap-3">
-        <button class="btn" routerLink="/">Cancel</button>
+        <button class="btn btn-secondary" routerLink="/">Cancel</button>
         <button type="submit" class="btn btn-primary" [disabled]="!todoform.valid">Submit</button>
     </div>
     

@@ -30,17 +30,16 @@ initialiseForm(){
 }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
     console.warn(this.todoform.value);
     let item:ToDo = {
       title:this.todoform.value.title,
-      description: this.todoform.value.title,
+      description: this.todoform.value.description,
       id:0
     };
 
     this.todoService.create(item).subscribe({
       next: response => {
-        console.log(response);
+        this.toastService.info("Item saved successfully")
         this.router.navigateByUrl("/");
       },
       error:error => this.toastService.error("Unable to save entry")
