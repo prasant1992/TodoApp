@@ -27,5 +27,9 @@ export class TodoService {
       throw error;
     }
   }
+
+  create(item:ToDo){
+    return this.http.post<ToDo>(`${this.baseUrl}/ToDoItems/Create`,item);
+  }
   
 }
