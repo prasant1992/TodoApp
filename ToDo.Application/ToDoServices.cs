@@ -30,19 +30,7 @@ namespace ToDo.Application
            return Enumerable.Empty<ToDoItem>();
         }
 
-        public async Task<ToDoItem?> GetToDoItemById(int id)
-        {
-            try
-            {
-                return await _toDoItemRepository.GetById(id);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"Error getting item:{id}");
-            }
-           return null;
-        }
-
+      
         public async Task<ToDoItem?> AddToDoItem(ToDoItemDto item)
         {           
             try
@@ -52,19 +40,6 @@ namespace ToDo.Application
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error adding item to list");
-            }
-            return null;
-        }
-
-        public async Task<ToDoItem?> UpdateToDoItem(ToDoItemDto item)
-        {
-            try
-            {
-                return await _toDoItemRepository.Update(_toItemDoMapperRepository.ToDoItemDtoToToDoItem(item));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error updating item to list");
             }
             return null;
         }

@@ -23,15 +23,6 @@ namespace ToDo.Api.Controllers
             return Ok(await _toDoServices.GetAllToDoItems());
         }
 
-        [HttpGet("GetById")]
-        public async Task<IActionResult> Get(int id)
-        {
-            var item = await _toDoServices.GetToDoItemById(id);
-            if (item is null) return NotFound();
-            return Ok(item);
-        }
-
-       
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] ToDoItemDto item)
         {
@@ -40,13 +31,6 @@ namespace ToDo.Api.Controllers
             return Ok(addedItem);
         }
 
-        [HttpPost("Update")]
-        public async Task<IActionResult> Update([FromBody] ToDoItemDto item)
-        {
-            var updatedItem = await _toDoServices.UpdateToDoItem(item);
-            if (updatedItem is null) return BadRequest();
-            return Ok(updatedItem);
-        }
 
         [HttpGet("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)

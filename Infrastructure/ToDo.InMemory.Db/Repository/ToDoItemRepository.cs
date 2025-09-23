@@ -24,21 +24,6 @@ namespace ToDo.InMemory.Db.Repository
             return _items;
         }
 
-        public async Task<ToDoItem?> GetById(int id)
-        {
-           return _items.FirstOrDefault(i => i.Id == id);
-        }
-
-        public async Task<ToDoItem?> Update(ToDoItem item)
-        {
-            ToDoItem? existingItem = _items.FirstOrDefault(i => i.Id == item.Id);
-            if ((existingItem is not null))
-            {
-                existingItem = item;
-            }
-            return item;
-        }
-
         private int GetNextId()
         {
             if (_items.Count == 0) return 1;
